@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:scrollbars="vertical"
+
+    android:scrollbarThumbVertical="@drawable/custom_scrollbar_vertical"
+    android:scrollbarSize="3dp"
+    android:fadeScrollbars="false"
+    >
+    <!--        android:fadeScrollbars="true"   无滚动时隐藏-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+<!--设置-->
+        <LinearLayout
+            android:id="@+id/set_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/styles_frame"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+           >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/settings"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+            <Button
+                android:id="@+id/resetButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/WindowKeyboardBottom"
+                android:text="@string/reset"
+                />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/screenLock"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/screenLock"
+                android:textColor="@color/white"
+                app:trackTint="@color/switch_color" />
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/longKey"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/longKey"
+                android:textColor="@color/white"
+                app:trackTint="@color/switch_color" />
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:padding="16dp"
+                android:id="@+id/retransmission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/retransmission"
+                android:textColor="@color/white"
+                app:trackTint="@color/switch_color" />
+
+            <!--鼠标移动的速度-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/styles_frame"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="@string/pointerSpeed"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/pointerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="5dp"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/pointerSeekBar"
+                    style="@style/CustomSeekBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:max="20"
+                    android:padding="5dp"
+                    android:progress="10" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/styles_frame"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="@string/iconOffset"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/iconOffsetTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="5dp"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/iconOffsetSeekBar"
+                    style="@style/CustomSeekBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:max="500"
+                    android:padding="5dp"
+                    android:progress="200" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/styles_frame"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="@string/movingDistance"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/movingDistanceTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="5dp"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/movingDistanceSeekBar"
+                    style="@style/CustomSeekBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:max="100"
+                    android:padding="5dp"
+                    android:progress="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/styles_frame"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="@string/gyroscopeThreshold"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/gyroscopeThresholdTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="5dp"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/gyroscopeThresholdSeekBar"
+                    style="@style/CustomSeekBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:max="50"
+                    android:padding="5dp"
+                    android:progress="1" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/styles_frame"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="@string/xMapping"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/xBackward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/invert"
+                        android:textColor="@color/white"
+                        app:trackTint="@color/switch_color" />
+
+                </LinearLayout>
+
+                <RadioGroup
+                    android:padding="5dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/mouse_xMapping"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/mouse_x_axis_x"
+                        style="@style/RadioButtonStyle"
+                        android:text="@string/xAxis"
+                        android:layout_weight="1"
+                        />
+                    <RadioButton
+                        android:id="@+id/mouse_x_axis_y"
+                        style="@style/RadioButtonStyle"
+                        android:text="@string/yAxis"
+                        android:layout_weight="1"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/mouse_x_axis_z"
+                        style="@style/RadioButtonStyle"
+                        android:text="@string/zAxis"
+                        android:layout_weight="1"
+                        />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/styles_frame"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="@string/yMapping"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/yBackward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/invert"
+                        android:textColor="@color/white"
+                        app:trackTint="@color/switch_color" />
+
+                </LinearLayout>
+
+                <RadioGroup
+                    android:padding="5dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/mouse_yMapping"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/mouse_y_axis_x"
+                        style="@style/RadioButtonStyle"
+                        android:text="@string/xAxis"
+                        android:layout_weight="1"
+                        />
+                    <RadioButton
+                        android:id="@+id/mouse_y_axis_y"
+                        style="@style/RadioButtonStyle"
+                        android:text="@string/yAxis"
+                        android:layout_weight="1"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/mouse_y_axis_z"
+                        style="@style/RadioButtonStyle"
+                        android:text="@string/zAxis"
+                        android:layout_weight="1"
+                        />
+
+                </RadioGroup>
+            </LinearLayout>
+
+        </LinearLayout>
+
+<!--宏-->
+        <LinearLayout
+            android:id="@+id/set_4"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/styles_frame"
+            app:layout_constraintTop_toBottomOf="@id/set_2"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/macro"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:gravity="center"
+                />
+
+
+            <LinearLayout
+                android:padding="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <Button
+                    android:id="@+id/macroAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/WindowKeyboardBottom"
+                    android:text="@string/add"
+                    android:layout_weight="1"
+                    />
+                <Button
+                    android:id="@+id/macroDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/WindowKeyboardBottom"
+                    android:text="@string/delete"
+                    android:layout_weight="1"
+                    />
+                <Button
+                    android:id="@+id/macroRecord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/WindowKeyboardBottom"
+                    android:text="@string/record"
+                    android:layout_weight="1"
+                    />
+                <Button
+                    android:id="@+id/macroSend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/WindowKeyboardBottom"
+                    android:text="@string/send"
+                    android:layout_weight="1"
+                    />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:text="@string/nameList"
+                android:gravity="center"
+                />
+
+
+            <RadioGroup
+                android:id="@+id/createButton"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </RadioGroup>
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

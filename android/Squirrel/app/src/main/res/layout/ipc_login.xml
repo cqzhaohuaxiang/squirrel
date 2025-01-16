@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <EditText
+        android:background="@drawable/styles_frame"
+        android:id="@+id/ipc_username"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:hint="@string/username"
+        android:inputType="textMultiLine"
+        android:textColorHint="@color/yellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/ipc_password"
+        android:background="@drawable/styles_frame"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:hint="@string/password"
+        android:inputType="textMultiLine"
+        android:textColorHint="@color/yellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <Button
+        android:padding="20dp"
+        android:id="@+id/ipc_execute"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/keyboard_win_styles_buttons"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="@string/execute"
+        />
+
+
+
+
+</LinearLayout>

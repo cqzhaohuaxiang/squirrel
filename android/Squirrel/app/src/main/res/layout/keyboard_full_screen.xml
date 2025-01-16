@@ -1,0 +1,1811 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/keyboard_styles_background"
+    tools:context=".keyboard.KeyboardFullScreen"
+    >
+    <!--参考线 第一行按键顶边-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line1_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.032" />
+    <!--参考线 第一行按键底边-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line1_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.175" />
+    <!--参考线 第二行按键顶边-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line2_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.19" />
+    <!--参考线 第二行按键底边-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line2_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <!--    引导参考线 第三行按键-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line3_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line3_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.49" />
+    <!--    引导参考线 第四行按键-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line4_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.51" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line4_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+    <!--    引导参考线 第五行按键-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line5_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.67" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line5_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.81" />
+
+    <!--    引导参考线 第六行按键-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line6_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.826" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line6_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <!--    引导参考线 左边-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_all_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.006" />
+    <!--    引导参考线 右边-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_all_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.99" />
+    <!--esc-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_esc_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.103" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_0"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:tag="@string/key_esc"
+        android:text="ESC"
+        android:textColor="@color/button_glyph"
+        android:textSize="8sp"
+        android:background="@drawable/keyboard_button_styles_esc"
+        app:layout_constraintTop_toTopOf="@+id/line1_top"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintStart_toStartOf="@+id/line_all_left"
+        app:layout_constraintEnd_toStartOf="@+id/line_esc_right"
+        />
+
+    <!--F1-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f1_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.11" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f1_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.17" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_1"
+        android:tag="@string/key_f1"
+        android:text="F1"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f1_right"
+        app:layout_constraintStart_toStartOf="@+id/line_f1_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top" />
+
+    <!--F2-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f2_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.178" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f2_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.239" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_2"
+        android:tag="@string/key_f2"
+        android:text="F2"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f2_right"
+        app:layout_constraintStart_toStartOf="@+id/line_f2_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top" />
+    <!--F3-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f3_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.246" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f3_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.307" />
+
+    <!--F4-->
+    <Button
+        android:id="@+id/keyboard_button_full_3"
+        style="@style/FullKeyboardBottom"
+        android:tag="@string/key_f3"
+        android:text="F3"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f3_right"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/line_f3_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f4_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.315" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f4_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.377" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_4"
+        android:tag="@string/key_f4"
+        android:text="F4"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f4_right"
+        app:layout_constraintStart_toStartOf="@+id/line_f4_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top" />
+    <!--F5-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f5_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.385" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f5_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.445" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_5"
+        android:tag="@string/key_f5"
+        android:text="F5"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f5_right"
+        app:layout_constraintStart_toStartOf="@+id/line_f5_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top" />
+    <!--F6-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f6_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.452" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f6_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.512" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_6"
+        android:tag="@string/key_f6"
+        android:text="F6"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f6_right"
+        app:layout_constraintStart_toStartOf="@+id/line_f6_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top" />
+    <!--F7-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f7_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.52" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f7_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.581" />
+
+    <!--F8-->
+    <Button
+        android:id="@+id/keyboard_button_full_7"
+        style="@style/FullKeyboardBottom"
+        android:tag="@string/key_f7"
+        android:text="F7"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f7_right"
+        app:layout_constraintStart_toStartOf="@+id/line_f7_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f8_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.588" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f8_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_8"
+        android:tag="@string/key_f8"
+        android:text="F8"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f8_right"
+        app:layout_constraintStart_toStartOf="@+id/line_f8_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top" />
+
+    <!--F9-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f9_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.656" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f9_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.718" />
+    <Button
+        android:id="@+id/keyboard_button_full_9"
+        android:tag="@string/key_f9"
+        android:text="F9"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintTop_toTopOf="@+id/line1_top"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintStart_toStartOf="@+id/line_f9_left"
+        app:layout_constraintEnd_toStartOf="@+id/line_f9_right"
+        />
+
+
+    <!--F10-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f10_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.725" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f10_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.786" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_10"
+        android:tag="@string/key_f10"
+        android:text="F10"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f10_right"
+        app:layout_constraintStart_toStartOf="@+id/line_f10_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top"
+        />
+    <!--F11-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f11_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.794" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f11_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.855" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_11"
+        android:tag="@string/key_f11"
+        android:text="F11"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f11_right"
+        app:layout_constraintStart_toStartOf="@+id/line_f11_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top" />
+    <!--F12-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f12_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.862" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f12_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.923" />
+    <Button
+        android:id="@+id/keyboard_button_full_12"
+        android:tag="@string/key_f12"
+        android:text="F12"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f12_right"
+        app:layout_constraintStart_toStartOf="@+id/line_f12_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top" />
+    <!--DEL-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_del_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.93" />
+    <Button
+        android:id="@+id/keyboard_button_full_13"
+        android:tag="@string/key_delete"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="DEL"
+        android:textColor="@color/button_glyph"
+        android:textSize="8sp"
+        android:background="@drawable/keyboard_button_styles_del"
+        app:layout_constraintBottom_toTopOf="@+id/line1_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_all_right"
+        app:layout_constraintStart_toStartOf="@+id/line_del_left"
+        app:layout_constraintTop_toTopOf="@+id/line1_top" />
+
+    <!-- ~ -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_tilde_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.07" />
+    <Button
+        android:id="@+id/keyboard_button_full_14"
+        android:tag="@string/key_grave"
+        android:text="~\n\n`"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_tilde_right"
+        app:layout_constraintStart_toStartOf="@+id/line_all_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+
+    <!--数字1-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num1_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.075" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num1_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.136" />
+    <Button
+        android:id="@+id/keyboard_button_full_15"
+        android:tag="@string/key_1"
+        android:text="!\n\n1"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_num1_right"
+        app:layout_constraintStart_toStartOf="@+id/line_num1_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+    <!--数字2-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num2_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.145" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num2_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.205" />
+    <Button
+        android:id="@+id/keyboard_button_full_16"
+        android:tag="@string/key_2"
+        android:text="&#064;\n\n2"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_num2_right"
+        app:layout_constraintStart_toStartOf="@+id/line_num2_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+    <!--数字3-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num3_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.212" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num3_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.275" />
+    <Button
+        android:id="@+id/keyboard_button_full_17"
+        android:tag="@string/key_3"
+        android:text="#\n\n3"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_num3_right"
+        app:layout_constraintStart_toStartOf="@+id/line_num3_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+
+    <!--数字4-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num4_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.281" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num4_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.341" />
+    <Button
+        android:id="@+id/keyboard_button_full_18"
+        android:tag="@string/key_4"
+        android:text="$\n\n4"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_num4_right"
+        app:layout_constraintStart_toStartOf="@+id/line_num4_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+
+    <!--数字5-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num5_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.348" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num5_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.411" />
+    <Button
+        android:id="@+id/keyboard_button_full_19"
+        android:tag="@string/key_5"
+        android:text="%\n\n5"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_num5_right"
+        app:layout_constraintStart_toStartOf="@+id/line_num5_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+
+    <!--数字6-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num6_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.418" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num6_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.479" />
+    <Button
+        android:id="@+id/keyboard_button_full_20"
+        android:tag="@string/key_6"
+        android:text="^\n\n6"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_num6_right"
+        app:layout_constraintStart_toStartOf="@+id/line_num6_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+
+    <!--数字7-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num7_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.485" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num7_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.548" />
+    <Button
+        android:id="@+id/keyboard_button_full_21"
+        android:tag="@string/key_7"
+        android:text="&#38;\n\n7"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_num7_right"
+        app:layout_constraintStart_toStartOf="@+id/line_num7_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+    <!--数字8-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num8_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.555" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num8_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.617" />
+    <Button
+        android:id="@+id/keyboard_button_full_22"
+        android:tag="@string/key_8"
+        android:text="*\n\n8"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_num8_right"
+        app:layout_constraintStart_toStartOf="@+id/line_num8_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+
+    <!--数字9-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num9_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.622" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num9_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.684" />
+    <Button
+        android:id="@+id/keyboard_button_full_23"
+        android:tag="@string/key_9"
+        android:text="(\n\n9"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_num9_right"
+        app:layout_constraintStart_toStartOf="@+id/line_num9_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+
+    <!--数字0-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num0_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.689" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_num0_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.752" />
+    <Button
+        android:id="@+id/keyboard_button_full_24"
+        android:tag="@string/key_0"
+        android:text=")\n\n0"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_num0_right"
+        app:layout_constraintStart_toStartOf="@+id/line_num0_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+
+    <!-- —— Minus-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_minus_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.757" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_minus_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.821" />
+    <Button
+        android:id="@+id/keyboard_button_full_25"
+        android:tag="@string/key_minus"
+        android:text="—\n\n-"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_minus_right"
+        app:layout_constraintStart_toStartOf="@+id/line_minus_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+
+    <!-- + plus-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_plus_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.827" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_plus_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.889" />
+    <Button
+        android:id="@+id/keyboard_button_full_26"
+        android:tag="@string/key_equal"
+        android:text="+\n\n="
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_plus_right"
+        app:layout_constraintStart_toStartOf="@+id/line_plus_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+
+    <!--  back-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_back_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.897" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_27"
+        android:tag="@string/key_backspace"
+        android:text="Back\nSpace"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line2_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_all_right"
+        app:layout_constraintStart_toStartOf="@+id/line_back_left"
+        app:layout_constraintTop_toTopOf="@+id/line2_top" />
+
+    <!-- Tab -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_tab_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.103" />
+    <Button
+        android:id="@+id/keyboard_button_full_28"
+        android:tag="@string/key_tab"
+        android:text="Tab"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_tab_right"
+        app:layout_constraintStart_toStartOf="@+id/line_all_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+
+    <!--  q-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_q_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.109" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_q_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.171" />
+    <Button
+        android:id="@+id/keyboard_button_full_29"
+        android:tag="@string/key_q"
+        android:text="Q"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_q_right"
+        app:layout_constraintStart_toStartOf="@+id/line_q_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+    <!--  w-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_w_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.178" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_w_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.24" />
+    <Button
+        android:id="@+id/keyboard_button_full_30"
+        android:tag="@string/key_w"
+        android:text="W"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_w_right"
+        app:layout_constraintStart_toStartOf="@+id/line_w_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+    <!-- e-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_e_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.247" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_e_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.308" />
+    <Button
+        android:id="@+id/keyboard_button_full_31"
+        android:tag="@string/key_e"
+        android:text="E"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_e_right"
+        app:layout_constraintStart_toStartOf="@+id/line_e_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+
+    <!-- r-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_r_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.315" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_r_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.377" />
+    <Button
+        android:id="@+id/keyboard_button_full_32"
+        android:tag="@string/key_r"
+        android:text="R"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_r_right"
+        app:layout_constraintStart_toStartOf="@+id/line_r_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+    <!-- t-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_t_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.383" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_t_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.445" />
+    <Button
+        android:id="@+id/keyboard_button_full_33"
+        android:tag="@string/key_t"
+        android:text="T"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_t_right"
+        app:layout_constraintStart_toStartOf="@+id/line_t_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+    <!-- y-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_y_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.452" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_y_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.513" />
+    <Button
+        android:id="@+id/keyboard_button_full_34"
+        android:tag="@string/key_y"
+        android:text="Y"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_y_right"
+        app:layout_constraintStart_toStartOf="@+id/line_y_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+    <!-- u-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_u_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.521" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_u_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.581" />
+    <Button
+        android:id="@+id/keyboard_button_full_35"
+        android:tag="@string/key_u"
+        android:text="U"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_u_right"
+        app:layout_constraintStart_toStartOf="@+id/line_u_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+    <!-- i-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_i_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.588" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_i_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.651" />
+    <Button
+        android:id="@+id/keyboard_button_full_36"
+        android:tag="@string/key_i"
+        android:text="I"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_i_right"
+        app:layout_constraintStart_toStartOf="@+id/line_i_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+    <!-- o-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_o_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.657" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_o_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.718" />
+    <Button
+        android:id="@+id/keyboard_button_full_37"
+        android:tag="@string/key_o"
+        android:text="O"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_o_right"
+        app:layout_constraintStart_toStartOf="@+id/line_o_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+    <!-- p-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_p_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.725" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_p_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.786" />
+    <Button
+        android:id="@+id/keyboard_button_full_38"
+        android:tag="@string/key_p"
+        android:text="P"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_p_right"
+        app:layout_constraintStart_toStartOf="@+id/line_p_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+    <!-- [braces-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_braces.l_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.794" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_braces.l_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.855" />
+    <Button
+        android:id="@+id/keyboard_button_full_39"
+        android:tag="@string/key_bracket_left"
+        android:text="{\n\n["
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_braces.l_right"
+        app:layout_constraintStart_toStartOf="@+id/line_braces.l_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+    <!-- ]braces-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_braces.r_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.861" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_braces.r_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.922" />
+    <Button
+        android:id="@+id/keyboard_button_full_40"
+        android:tag="@string/key_bracket_right"
+        android:text="}\n\n]"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_braces.r_right"
+        app:layout_constraintStart_toStartOf="@+id/line_braces.r_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+    <!-- | pipe-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_pipe_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.929" />
+    <Button
+        android:id="@+id/keyboard_button_full_41"
+        android:tag="@string/key_backslash"
+        android:text="|\n\n\\"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line3_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_all_right"
+        app:layout_constraintStart_toStartOf="@+id/line_pipe_left"
+        app:layout_constraintTop_toTopOf="@+id/line3_top" />
+
+    <!-- Capital Lock-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_capital_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.119" />
+
+    <!-- lock-->
+    <Button
+        android:id="@+id/keyboard_button_full_42"
+        style = "@style/FullKeyboardBottom"
+        android:tag="@string/key_caps_lock"
+        android:text="Caps\nLock"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_capital_right"
+        app:layout_constraintStart_toStartOf="@+id/line_all_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_a_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.127" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_a_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.188" />
+    <Button
+        android:id="@+id/keyboard_button_full_43"
+        android:tag="@string/key_a"
+        android:text="A"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_a_right"
+        app:layout_constraintStart_toStartOf="@+id/line_a_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+    <!-- s-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_s_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.196" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_s_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.257" />
+    <Button
+        android:id="@+id/keyboard_button_full_44"
+        android:tag="@string/key_s"
+        android:text="S"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_s_right"
+        app:layout_constraintStart_toStartOf="@+id/line_s_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+    <!-- d-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_d_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.264" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_d_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.325" />
+    <Button
+        android:id="@+id/keyboard_button_full_45"
+        android:tag="@string/key_d"
+        android:text="D"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_d_right"
+        app:layout_constraintStart_toStartOf="@+id/line_d_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+    <!-- f-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.332" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_f_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.393" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_46"
+        style = "@style/FullKeyboardBottom"
+        android:tag="@string/key_f"
+        android:text="F"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_f_right"
+        app:layout_constraintStart_toStartOf="@+id/line_f_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top"
+        tools:ignore="TextSizeCheck" />
+    <!-- g-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_g_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.401" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_g_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.462" />
+    <Button
+        android:id="@+id/keyboard_button_full_47"
+        android:tag="@string/key_g"
+        android:text="G"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_g_right"
+        app:layout_constraintStart_toStartOf="@+id/line_g_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+    <!-- h-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_h_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.469" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_h_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.531" />
+    <Button
+        android:id="@+id/keyboard_button_full_48"
+        android:tag="@string/key_h"
+        android:text="H"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_h_right"
+        app:layout_constraintStart_toStartOf="@+id/line_h_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+    <!-- j-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_j_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.538" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_j_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.599" />
+    <Button
+        android:id="@+id/keyboard_button_full_49"
+        android:tag="@string/key_j"
+        android:text="J"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_j_right"
+        app:layout_constraintStart_toStartOf="@+id/line_j_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+    <!-- k-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_k_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.606" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_k_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.667" />
+    <Button
+        android:id="@+id/keyboard_button_full_50"
+        android:tag="@string/key_k"
+        android:text="K"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_k_right"
+        app:layout_constraintStart_toStartOf="@+id/line_k_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+    <!-- l-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_l_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.674" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_l_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.735" />
+    <Button
+        android:id="@+id/keyboard_button_full_51"
+        android:tag="@string/key_l"
+        android:text="L"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_l_right"
+        app:layout_constraintStart_toStartOf="@+id/line_l_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+    <!--    ; semicolon-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_semicolon_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.743" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_semicolon_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.804" />
+    <Button
+        android:id="@+id/keyboard_button_full_52"
+        android:tag="@string/key_semicolon"
+        android:text=":\n\n;"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_semicolon_right"
+        app:layout_constraintStart_toStartOf="@+id/line_semicolon_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+    <!--    " quote-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_quote_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.811" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_quote_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.872" />
+    <Button
+        android:id="@+id/keyboard_button_full_53"
+        android:tag="@string/key_apostrophe"
+        android:text="&#034;\n\n'"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_quote_right"
+        app:layout_constraintStart_toStartOf="@+id/line_quote_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+
+    <!-- enter-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_enter_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.879" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_54"
+        android:tag="@string/key_enter"
+        android:text="Enter"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line4_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_all_right"
+        app:layout_constraintStart_toStartOf="@+id/line_enter_left"
+        app:layout_constraintTop_toTopOf="@+id/line4_top" />
+
+    <!-- shift left-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_shift"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.154" />
+
+    <!-- z-->
+    <Button
+        android:id="@+id/keyboard_button_full_55"
+        style="@style/FullKeyboardBottom"
+        android:text="Shift"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_shift"
+        app:layout_constraintStart_toStartOf="@+id/line_all_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_z_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.161" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_z_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.222" />
+    <Button
+        android:id="@+id/keyboard_button_full_56"
+        android:tag="@string/key_z"
+        android:text="Z"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_z_right"
+        app:layout_constraintStart_toStartOf="@+id/line_z_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+    <!-- x-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_x_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.23" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_x_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.291" />
+    <Button
+        android:id="@+id/keyboard_button_full_57"
+        android:tag="@string/key_x"
+        android:text="X"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_x_right"
+        app:layout_constraintStart_toStartOf="@+id/line_x_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+    <!-- c-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_c_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.298" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_c_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.359" />
+    <Button
+        android:id="@+id/keyboard_button_full_58"
+        android:tag="@string/key_c"
+        android:text="C"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_c_right"
+        app:layout_constraintStart_toStartOf="@+id/line_c_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+    <!-- v-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_v_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.367" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_v_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.428" />
+    <Button
+        android:id="@+id/keyboard_button_full_59"
+        android:tag="@string/key_v"
+        android:text="V"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_v_right"
+        app:layout_constraintStart_toStartOf="@+id/line_v_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+    <!-- b-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_b_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.435" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_b_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.496" />
+    <Button
+        android:id="@+id/keyboard_button_full_60"
+        android:tag="@string/key_b"
+        android:text="B"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_b_right"
+        app:layout_constraintStart_toStartOf="@+id/line_b_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+    <!-- n-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_n_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.503" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_n_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.564" />
+    <Button
+        android:id="@+id/keyboard_button_full_61"
+        android:tag="@string/key_n"
+        android:text="N"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_n_right"
+        app:layout_constraintStart_toStartOf="@+id/line_n_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+    <!-- m-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_m_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.571" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_m_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.632" />
+    <Button
+        android:id="@+id/keyboard_button_full_62"
+        android:tag="@string/key_m"
+        android:text="M"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_m_right"
+        app:layout_constraintStart_toStartOf="@+id/line_m_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+    <!-- < less-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_less_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.639" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_less_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.701" />
+    <Button
+        android:id="@+id/keyboard_button_full_63"
+        android:tag="@string/key_comma"
+        android:text="&#060;\n\n,"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_less_right"
+        app:layout_constraintStart_toStartOf="@+id/line_less_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+    <!-- > great -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_great_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.708" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_great_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.769" />
+    <Button
+        android:id="@+id/keyboard_button_full_64"
+        android:tag="@string/key_period"
+        android:text="&#062;\n\n."
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_great_right"
+        app:layout_constraintStart_toStartOf="@+id/line_great_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+    <!--   ? question-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_question_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.776" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_question_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.837" />
+    <Button
+        android:id="@+id/keyboard_button_full_65"
+        android:tag="@string/key_slash"
+        android:text="&#063;\n\n/"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_question_right"
+        app:layout_constraintStart_toStartOf="@+id/line_question_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+
+
+
+    <!-- 方向 up ↑  -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_up_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.845" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_up_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.906" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_66"
+        android:tag="@string/key_arrow_up"
+        android:text="↑"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_up_right"
+        app:layout_constraintStart_toStartOf="@+id/line_up_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top" />
+
+
+
+
+
+
+
+
+    <!--Ctrl-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ctrl_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.106" />
+    <Button
+        android:id="@+id/keyboard_button_full_67"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/keyboard_button_styles_ctrl"
+        android:text="Ctrl"
+        android:textColor="@color/button_glyph"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/line6_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_ctrl_right"
+        app:layout_constraintStart_toStartOf="@+id/line_all_left"
+        app:layout_constraintTop_toTopOf="@+id/line6_top" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_vibrate_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.113" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_vibrate_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.184" />
+
+
+    <!--    WIN-->
+
+    <Button
+        android:id="@+id/keyboard_button_full_68"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/keyboard_button_styles_win"
+        android:tag="@string/key_win_left"
+        app:layout_constraintBottom_toTopOf="@+id/line6_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_vibrate_right"
+        app:layout_constraintStart_toStartOf="@+id/line_vibrate_left"
+        app:layout_constraintTop_toTopOf="@+id/line6_top" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_alt_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.191" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_alt_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.291" />
+
+
+
+    <Button
+
+        android:id="@+id/keyboard_button_full_69"
+        style="@style/FullKeyboardBottom"
+        android:text="Alt"
+        app:layout_constraintBottom_toTopOf="@+id/line6_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_alt_right"
+        app:layout_constraintStart_toStartOf="@+id/line_alt_left"
+        app:layout_constraintTop_toTopOf="@+id/line6_top"
+       />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_space_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.297" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_space_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.67" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_70"
+        style = "@style/FullKeyboardBottom"
+        android:tag="@string/key_space"
+        android:text="Space"
+        app:layout_constraintBottom_toTopOf="@+id/line6_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_space_right"
+        app:layout_constraintStart_toStartOf="@+id/line_space_left"
+        app:layout_constraintTop_toTopOf="@+id/line6_top" />
+
+
+
+
+
+
+
+
+
+    <!-- 方向 左 left ← -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_left_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.76" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_left_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.837" />
+    <Button
+        android:id="@+id/keyboard_button_full_71"
+        android:tag="@string/key_arrow_left"
+        android:text="←"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintTop_toTopOf="@+id/line6_top"
+        app:layout_constraintBottom_toTopOf="@+id/line6_bottom"
+        app:layout_constraintStart_toStartOf="@+id/line_left_left"
+        app:layout_constraintEnd_toStartOf="@+id/line_left_right"
+        />
+
+
+
+
+    <Button
+        android:id="@+id/keyboard_button_full_72"
+        android:tag="@string/key_arrow_down"
+        android:text="↓"
+        style = "@style/FullKeyboardBottom"
+        app:layout_constraintTop_toTopOf="@+id/line6_top"
+        app:layout_constraintBottom_toTopOf="@+id/line6_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_up_right"
+        app:layout_constraintStart_toStartOf="@+id/line_up_left"
+        />
+
+
+
+
+    <!-- right → -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_right_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.913" />
+    <Button
+        android:id="@+id/keyboard_button_full_73"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:tag="@string/key_arrow_right"
+        android:text="→"
+        android:textColor="@color/button_glyph"
+        android:textSize="8sp"
+        android:background="@drawable/keyboard_button_styles_right"
+        app:layout_constraintBottom_toTopOf="@+id/line6_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_all_right"
+        app:layout_constraintStart_toStartOf="@+id/line_right_left"
+        app:layout_constraintTop_toTopOf="@+id/line6_top" />
+
+
+
+    <!--声音 sound-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_sound_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.913" />
+
+    <!--  main-->
+    <Button
+        android:id="@+id/keyboard_button_full_74"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/keyboard_button_styles_sound"
+        app:layout_constraintBottom_toTopOf="@+id/line5_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_all_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/line_sound_left"
+        app:layout_constraintTop_toTopOf="@+id/line5_top"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_mouse_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.68" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_mouse_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <Button
+        android:id="@+id/keyboard_button_full_75"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/keyboard_button_styles_house"
+        app:layout_constraintBottom_toTopOf="@+id/line6_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_mouse_right"
+        app:layout_constraintStart_toStartOf="@+id/line_mouse_left"
+        app:layout_constraintTop_toTopOf="@+id/line6_top"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

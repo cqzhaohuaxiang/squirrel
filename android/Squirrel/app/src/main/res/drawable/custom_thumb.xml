@@ -1,0 +1,54 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:constantSize="true">
+
+
+    <!-- 当滑块被按下时的状态 -->
+    <item android:state_pressed="true">
+        <bitmap android:src="@drawable/abc_btn_switch_to_on_mtrl_00012"
+            android:gravity="center"/>
+    </item>
+
+    <!-- 当滑块获得焦点时的状态 -->
+    <item android:state_focused="true">
+        <bitmap android:src="@drawable/abc_scrubber_control_off_mtrl_alpha"
+            android:gravity="center"/>
+    </item>
+
+
+    <!-- 默认状态 -->
+    <item>
+        <bitmap android:src="@drawable/abc_scrubber_control_off_mtrl_alpha"
+            android:gravity="center"/>
+    </item>
+    <!-- 当滑块被按下时的状态 -->
+<!--    <item android:state_pressed="true">-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <solid android:color="#FF4081"/> &lt;!&ndash; 按下状态的颜色 &ndash;&gt;-->
+<!--            <corners android:radius="12dp"/> &lt;!&ndash; 圆角半径 &ndash;&gt;-->
+<!--            <size android:width="24dp" android:height="24dp"/> &lt;!&ndash; 滑块尺寸 &ndash;&gt;-->
+<!--        </shape>-->
+<!--    </item>-->
+
+<!--    &lt;!&ndash; 当滑块获得焦点时的状态 &ndash;&gt;-->
+<!--    <item android:state_focused="true">-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <solid android:color="#FFC107"/> &lt;!&ndash; 焦点状态的颜色 &ndash;&gt;-->
+<!--            <corners android:radius="12dp"/> &lt;!&ndash; 圆角半径 &ndash;&gt;-->
+<!--            <size android:width="24dp" android:height="24dp"/> &lt;!&ndash; 滑块尺寸 &ndash;&gt;-->
+<!--        </shape>-->
+<!--    </item>-->
+
+<!--    &lt;!&ndash; 默认状态 &ndash;&gt;-->
+<!--    <item>-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <solid android:color="#D3D3D3"/> &lt;!&ndash; 默认状态的颜色 &ndash;&gt;-->
+<!--            <corners android:radius="12dp"/> &lt;!&ndash; 圆角半径 &ndash;&gt;-->
+<!--            <size android:width="24dp" android:height="24dp"/> &lt;!&ndash; 滑块尺寸 &ndash;&gt;-->
+<!--        </shape>-->
+<!--    </item>-->
+
+
+
+
+
+</selector>

@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name">Squirrel</string>
+    <string name="running"> </string>
+
+    <string name="settings">设置</string>
+    <string name="iconOffset">触摸图标偏移量</string>
+    <string name="touch">触摸</string>
+    <string name="gyroscope">陀螺仪</string>
+    <string name="right">右键</string>
+    <string name="left">左键</string>
+    <string name="pointer">指针</string>
+    <string name="wheel">滚轮</string>
+    <string name="pointerSpeed">指针速度</string>
+    <string name="movingDistance">鼠标滚轮移动距离</string>
+    <string name="fullScreen">全屏</string>
+    <string name="symbol">符号</string>
+
+    <string name="xMapping">左右移动映射</string>
+    <string name="yMapping">上下移动映射</string>
+    <string name="invert">取反</string>
+    <string name="reset">重置</string>
+    <string name="keyMsg">键盘状态</string>
+    <string name="xAxis">X轴</string>
+    <string name="yAxis">Y轴</string>
+    <string name="zAxis">Z轴</string>
+    <string name="listDataSize">折线图中的数据点数</string>
+    <string name="retransmission">重传</string>
+
+    <string name="wifiConnected">WiFi未连接</string>
+    <string name="invalidIP">无效的本地IP地址</string>
+
+    <string name="connectedOK">连接的服务是：</string>
+    <string name="connectedErr">无法连接到服务器</string>
+    <string name="longKey">启用长按</string>
+
+    <string name="screenLock">不要自动锁屏</string>
+    <string name="noService">网络中未找到服务设备</string>
+    <string name="noHost">USB接口未连接主机。</string>
+
+    <string name="networkStatus">网络状态</string>
+    <string name="failedEnqueue">数据入队失败</string>
+
+    <string name="gyroscopeThreshold">陀螺仪阈值</string>
+
+    <string name="connected">网络已连接</string>
+    <string name="mobileData">移动数据</string>
+    <string name="ipList">IP列表</string>
+
+    <string name="success">成功连接到服务</string>
+    <string name="fail">连接服务失败</string>
+
+    <string name="macro">宏</string>
+    <string name="add">添加</string>
+    <string name="addName">创建新的SQL表名</string>
+    <string name="invalid">无效的表名：必须以字母或汉字开头，且不能包含特殊字符或SQL关键字。</string>
+    <string name="select">请选择要操作的表名</string>
+    <string name="enterContent">请输入内容</string>
+    <string name="delete">删除</string>
+    <string name="deleteName">删除SQL表名</string>
+    <string name="sendName">发送SQL表名</string>
+    <string name="record">记录</string>
+    <string name="send">发送</string>
+    <string name="execute">执行</string>
+    <string name="cancel">取消</string>
+    <string name="nameList">名称列表</string>
+    <string name="sendSpeed">发送速度</string>
+    <string name="sendCount">发送次数</string>
+    <string name="completion">完成情况</string>
+
+    <string name="playUrl">播放</string>
+    <string name="url">URI: </string>
+    <string name="refresh">刷新</string>
+    <string name="username">设备登录用户名</string>
+    <string name="password">设备登录密码</string>
+    <string name="hideWeb">隐藏网页</string>
+    <string name="deviceTime">设备时间</string>
+    <string name="mobileTime">手机时间</string>
+    <string name="timeSync">同步时间</string>
+
+    <string name="inputUrl">请输入视频地址</string>
+</resources>

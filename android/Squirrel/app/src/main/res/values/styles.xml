@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BottomNavItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+
+    <!-- 为 TabLayout 定义自定义样式 -->
+    <style name="CustomTabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <!-- Apply custom text appearance -->
+        <item name="tabTextAppearance">@style/CustomTabTextAppearance</item>
+        <!-- Set the indicator color -->
+        <item name="tabIndicatorColor">@color/blue</item>
+    </style>
+
+    <style name="CustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <!-- Disable all caps -->
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="LinearLayoutBottom">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/keyboard_win_styles_buttons</item>
+
+    </style>
+
+<!--    在窗口状态下键盘风格-->
+    <style name="WindowKeyboardBottom">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/keyboard_win_styles_buttons</item>
+
+    </style>
+
+
+    <!--    在全屏状态下键盘风格-->
+    <style name="FullKeyboardBottom">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:textColor">@color/button_glyph</item>
+        <item name="android:background">@drawable/keyboard_styles_buttons</item>
+
+    </style>
+
+
+
+
+
+    <style name="HelpText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+
+
+    //进度条风格
+    <style name="CustomSeekBarStyle" parent="android:Widget">
+        <item name="android:thumb">@drawable/custom_thumb</item>
+        <item name="android:progressDrawable">@drawable/custom_progress</item>
+        <item name="android:focusable">true</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+
+    </style>
+
+    <!-- 自定义 RadioButton 样式 -->
+    <style name="RadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">8sp</item>
+        <!-- 设置单选按钮的文本颜色 -->
+        <item name="android:textColor">@color/white</item>
+        <!-- 设置单选按钮的圆点颜色 -->
+        <item name="android:buttonTint">@color/radio_color</item>
+        <!-- 设置单选按钮的背景 -->
+        <item name="android:background">@drawable/radio_background</item>
+        <!-- 按钮大小 -->
+<!--        <item name="android:button">@drawable/custom_radio_button</item> -->
+        <!-- 设置内边距 -->
+        <item name="android:padding">2dp</item>
+        <!-- 按下的状态 -->
+        <item name="android:state_checked">@color/blue</item> <!-- 勾选时的颜色 -->
+        <!-- 按钮对齐方式 -->
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+
+
+
+</resources>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:scrollbars="vertical"
+    android:scrollbarThumbVertical="@drawable/custom_scrollbar_vertical"
+    android:scrollbarSize="3dp"
+    android:fadeScrollbars="false"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            >
+            <TextView
+                android:padding="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/sendName"
+                />
+
+            <TextView
+                android:padding="20dp"
+                android:id="@+id/macro_send_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <LinearLayout
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/styles_frame"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="@string/sendSpeed"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/macro_send_SpeedText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:padding="5dp"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/macro_send_SpeedBar"
+                    style="@style/CustomSeekBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:max="50"
+                    android:padding="5dp"
+                    android:progress="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/styles_frame"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="@string/sendCount"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/macro_send_CountText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/blue"
+                        android:text="1"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/macro_send_CountBar"
+                    style="@style/CustomSeekBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:max="1000"
+                    android:padding="5dp"
+                    android:progress="1" />
+            </LinearLayout>
+
+            <TextView
+                android:padding="20dp"
+                android:id="@+id/send_completion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/completion"
+                />
+            <ProgressBar
+                android:id="@+id/send_progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progress="0"
+                android:max="100"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/custom_progress_bar"
+                />
+
+
+            <LinearLayout
+                android:padding="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/macro_send_cancel"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keyboard_win_styles_buttons"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:text="@string/cancel"
+                    />
+
+                <Button
+                    android:id="@+id/macro_send_execute"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keyboard_win_styles_buttons"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:text="@string/execute"
+                    />
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

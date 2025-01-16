@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">#00000000</color>
+    <color name="green">#ff228B22</color>
+    <color name="yellow">#ffffff00</color>
+    <color name="red">#ffff0000</color>
+    <color name="blue">#ff1DA1F2</color>
+    <!-- 背景色-->
+    <color name="black">#FF000000</color>
+    <!--    文本显示 -->
+    <color name="white">#FFFFFFFF</color>
+    <!--控件边边框-->
+    <color name="grey">#4eFFFFFF</color>
+<!--    菜单背景-->
+    <color name="black2">#ff424242</color>
+
+
+
+
+    <!--    键盘按钮边框-->
+    <color name="button_frame">#ff4d4e50</color>
+    <!--    键盘按钮渐变开始-->
+    <color name="button_start">#ffeff0f4</color>
+    <!--    键盘按钮渐变中心-->
+    <color name="button_center">#ffc4c5c6</color>
+    <!--    键盘按钮渐变结束-->
+    <color name="button_end">#ff9e9fa1</color>
+    <!--    键盘按钮高度-->
+    <color name="button_high">#ff838484</color>
+    <!--    键盘按钮字体-->
+    <color name="button_glyph">#ff74747c</color>
+    <!--    键盘背景风格-->
+    <color name="background">#ffb4b4b6</color>
+
+
+</resources>

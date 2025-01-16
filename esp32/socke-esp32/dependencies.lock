@@ -1,0 +1,17 @@
+dependencies:
+  idf:
+    source:
+      type: idf
+    version: 5.3.0
+  tinyusb:
+    dependencies: []
+    source:
+      path: C:\Users\me\Desktop\squirrel\socke-esp32\components\tinyusb
+      type: local
+    version: 0.15.0~3
+direct_dependencies:
+- espressif/tinyusb
+- idf
+manifest_hash: b68b9dd6bbec075c19de6002e5d3a0703afc1637ff8d3ae2042acec5af29100a
+target: esp32s2
+version: 2.0.0

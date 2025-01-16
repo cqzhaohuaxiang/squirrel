@@ -1,0 +1,29 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 背景（未完成部分） -->
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="@color/grey"/>
+            <corners android:radius="10dp"/> <!-- 圆角 -->
+        </shape>
+    </item>
+
+    <!-- 前景（已完成部分） -->
+    <item android:id="@android:id/secondaryProgress">
+        <clip android:gravity="left">
+            <shape>
+                <solid android:color="@color/blue"/> <!-- 可以设置为灰色 #AAAAAA-->
+                <corners android:radius="10dp"/>
+            </shape>
+        </clip>
+    </item>
+
+    <!-- 进度条（蓝色部分） -->
+    <item android:id="@android:id/progress">
+        <clip android:gravity="left">
+            <shape>
+                <solid android:color="@color/blue"/>
+                <corners android:radius="10dp"/>
+            </shape>
+        </clip>
+    </item>
+</layer-list>

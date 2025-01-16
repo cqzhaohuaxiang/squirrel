@@ -1,0 +1,561 @@
+package com.android.squirrel.ipc.onvif
+
+
+import android.content.Context
+import android.content.res.AssetManager
+import android.net.wifi.WifiInfo
+import android.net.wifi.WifiManager
+import android.os.Build
+import android.util.Base64
+import android.util.Log
+import androidx.annotation.RequiresApi
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.xmlpull.v1.XmlPullParser
+import org.xmlpull.v1.XmlPullParserFactory
+import java.io.BufferedInputStream
+import java.io.BufferedReader
+import java.io.ByteArrayOutputStream
+
+import java.io.IOException
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.io.OutputStream
+import java.io.StringReader
+import java.io.StringWriter
+import java.net.DatagramPacket
+import java.net.DatagramSocket
+import java.net.HttpURLConnection
+import java.net.InetAddress
+import java.net.NetworkInterface
+import java.net.SocketException
+import java.net.URL
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets
+import java.security.MessageDigest
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
+import java.util.UUID
+import java.util.concurrent.LinkedBlockingQueue
+import java.util.concurrent.TimeUnit
+
+
+class OnvifRequests (val context: Context): ViewModel(){
+
+    private  var wsJob: Job? = null //用于发现设备的协程任务
+    private  var wsSocket: DatagramSocket? = null
+    private val reporterQueue: LinkedBlockingQueue<Pair<String, DatagramPacket>> = LinkedBlockingQueue()
+
+    private val nameRegex =  """(?<=name/)[^/]+""".toRegex()//取出名称字段
+
+    //ws 发现过的设备存入这个中
+    private val deviceMap: MutableMap<String, OnvifDeviceMsg> = mutableMapOf()
+    //通知ui更新显示的设备
+    private val _display = MutableLiveData<Map<String, DeviceDisplayInformation>>()
+    val display: LiveData<Map<String, DeviceDisplayInformation>> get() = _display
+
+    // 用于通知 UI 处理结果
+    private var _request = MutableLiveData<ReturnOperation>()
+    val request: LiveData<ReturnOperation> get() = _request
+
+    init {
+        wsDiscovery()
+
+
+
+    }
+    /**
+     * 用于WS发现本地网络中所有 ONVIF 设备的函数。
+     */
+
+    @OptIn(DelicateCoroutinesApi::class)
+    private fun wsDiscovery() {
+        if (wsJob?.isActive == true) return
+        wsJob = GlobalScope.launch(Dispatchers.IO) {
+            if (getWiFiInetAddress(context)){
+                try {
+                    // 创建 DatagramSocket
+                    wsSocket = DatagramSocket()
+                    wsSocket?.broadcast = true  //允许广播
+
+
+
+
+                    //缓慢处理接收到的数据
+                    launch {
+                        while (isActive){
+                            //key 的数据是发送方的ip与端口
+                            val (key, receivedPacket) = reporterQueue.take()
+
+                            //没有解析过？  解析ws发现返回数据
+                            if (!deviceMap.containsKey(key)){
+                                val xml = String(receivedPacket.data, 0, receivedPacket.length)
+
+                                val newDisplay: Map<String, DeviceDisplayInformation> =  mapOf(
+                                    key to DeviceDisplayInformation(key, "","onvif"))
+                                val device = OnvifDeviceMsg("","","","","","")
+                                deviceMap[key] = device
+
+                                val targets = listOf("d:Scopes", "d:XAddrs")  // 关心的元素标签名
+                                val result = parseXml(xml, targets)
+                                val scopes = result["d:Scopes"]
+                                if (scopes != null) {
+                                    for (scope in scopes) {
+                                        val name = nameRegex.find(scope)?.value ?: ""
+                                        if (name != "") {
+                                            newDisplay[key]?.deviceName = name.toString()
+                                            break
+                                        }
+                                    }
+                                }
+
+                                val addrs = result["d:XAddrs"]
+                                if (addrs != null) {
+                                    for (address in addrs) {
+                                        val ipv4Address = extractIPv4(address)
+                                        if (ipv4Address != ""){
+                                            newDisplay[key]?.deviceIp = ipv4Address
+                                            deviceMap[key]?.deviceAddr = address
+                                            break
+                                        }
+                                    }
+                                }
+
+
+
+                                // 更新 UI，切换到主线程
+                                withContext(Dispatchers.Main) {
+                                    _display.value = newDisplay
+                                    for (i in 0..30){
+                                        val kk = "$key$i"
+                                        val newDisplay: Map<String, DeviceDisplayInformation> =  mapOf(
+                                            kk to DeviceDisplayInformation("$i", "$i",""))
+                                        _display.value = newDisplay
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+                    //这个就只管接收数据，送到队列中
+                    val receiveBuffer = ByteArray(1024*20)  // 缓冲区大小
+                    val packet = DatagramPacket(receiveBuffer, receiveBuffer.size)
+                    launch {
+                        while (isActive){
+                            try {
+                                wsSocket?.receive(packet)
+//                                val senderAddress = (packet.socketAddress as InetSocketAddress).address.hostAddress?.toString()//不带端口号
+                                val address = packet.socketAddress.toString() //含有端口号
+                                val packetCopy = DatagramPacket(packet.data.copyOf(), packet.length)
+                                reporterQueue.put(Pair(address, packetCopy))
+
+                            }catch (e: SocketException) {
+                                e.printStackTrace()
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
+                        }
+                    }
+
+
+                    val broadcastAddress = InetAddress.getByName("239.255.255.250");  // ONVIF 多播地址
+                    val  port = 3702;  // ONVIF 默认端口
+                    while (isActive){
+//                        val msg=  getWsDiscovery()
+                        val targets = listOf("${UUID.randomUUID()}")
+                        val msg = getSendMsg("xml/WsDiscovery",targets)
+                        val msgByte = msg.toByteArray()
+                        val sendPacket = DatagramPacket(msgByte, msgByte.size, broadcastAddress, port)
+                        wsSocket?.send(sendPacket)
+                        delay(1500)
+                    }
+
+                } catch (e: SocketException) {
+                    e.printStackTrace()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        }
+    }
+
+    fun stop(){
+        wsSocket?.close()
+        deviceMap.clear()
+        wsJob?.cancel()
+    }
+
+
+
+    // 处理HTTP错误的函数
+    private fun handleHttpError(statusCode: Int, responseBody: String?): String {
+        return when (statusCode) {
+            200 -> "Request succeeded: $responseBody" // 请求成功
+            201 -> "Resource created successfully: $responseBody" // 资源创建成功
+            400 -> "Bad Request: Invalid request format or missing parameters." // 错误的请求
+            401 -> "Unauthorized: You need to authenticate first." // 未授权
+            403 -> "Forbidden: You do not have permission to access this resource." // 禁止访问
+            404 -> "Not Found: The requested resource could not be found." // 资源未找到
+            405 -> "Method Not Allowed: The HTTP method is not allowed for the requested resource." // 不允许的方法
+            500 -> "Internal Server Error: The server encountered an error while processing the request." // 服务器错误
+            502 -> "Bad Gateway: Invalid response from upstream server." // 错误的网关
+            503 -> "Service Unavailable: The server is temporarily unavailable, try again later." // 服务不可用
+            504 -> "Gateway Timeout: The server took too long to respond." // 网关超时
+            else -> "Unknown Error: An unexpected error occurred (status code: $statusCode)." // 其他未知错误
+        }
+    }
+
+    fun getPlayUri(key:String):String{
+        if (deviceMap.containsKey(key)){
+            return deviceMap[key]?.uri ?: ""
+        }
+        return ""
+    }
+
+    //只获取视频的地址
+    fun getUri (username:String, password:String, key:String){
+
+        if (deviceMap.containsKey(key)){
+//            val msg = deviceMap[key]
+            //判断用户名与密码对不对  (获取一下uri)
+
+            //步骤 1  获得设备的时间
+
+          getSystemDateAndTime(username,password,key){
+
+          }
+
+        }
+
+
+
+
+    }
+
+
+
+    //获取设备的时间
+    private fun getSystemDateAndTime(username:String, password:String,key: String,callback: (response: String) -> Unit){
+
+        val nonce = getNonce()
+        val date = getDate()
+        val passwordDigest = getPasswordDigest(nonce, date,password)
+        //标准的请求头
+        val targets = listOf(username,passwordDigest,nonce,date)
+        val sendMsg = getSendMsg("xml/GetSystemDateAndTime",targets)
+        val address = deviceMap[key]?.deviceAddr   //服务地址
+        address?.let {
+            sendPostRequest(it, sendMsg){returnOperation->
+                val dateTime = getLocalDateTime(returnOperation)
+                dateTime?.let { p1 -> callback(p1) }
+                Log.d("out","正在 时间 $dateTime")
+//                dateTime?.let {
+//                    getCapabilities(username,password,address,it)
+//                }
+            }
+        }
+
+
+    }
+    //设备的服务地址，GetServices
+    private fun getCapabilities(username:String, password:String,address: String,date: String){
+        val nonce = getNonce()
+        val passwordDigest = getPasswordDigest(nonce, date,password)
+
+        //标准的请求头
+        val targets = listOf(username,passwordDigest,nonce,date)
+        val sendMsg = getSendMsg("xml/GetServices",targets)
+
+        sendPostRequest(address, sendMsg) { returnOperation ->
+
+            val targets = listOf("tds:XAddr")  // 关心的元素标签名
+            val result = parseXml(returnOperation, targets)
+            val scopes = result["tds:XAddr"]
+            if (scopes != null) {
+                for (scope in scopes) {
+                   Log.d("out","服务地址 $scope")
+
+
+                        when{
+
+                            scope.contains("Media") -> println("Media Service")
+                            scope.contains("Events") -> println("Events Service")
+                            scope.contains("PTZ") -> println("PTZ Service")
+
+                        }
+
+
+                }
+            }
+            //现在只关心媒体服务地址
+            println("$returnOperation")
+
+        }
+    }
+
+
+
+
+    //检查wifi状态
+    private fun getWiFiInetAddress(context: Context): Boolean {
+        val wifiManager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        val wifiInfo: WifiInfo = wifiManager.connectionInfo
+        // 检查 Wi-Fi 是否连接
+        if (wifiInfo.networkId == -1) return false
+
+        val networkInterfaces = NetworkInterface.getNetworkInterfaces()
+        // 遍历所有网络接口
+        while (networkInterfaces.hasMoreElements()) {
+            val networkInterface = networkInterfaces.nextElement()
+            // 获取该接口的所有地址
+            val interfaceAddresses = networkInterface.interfaceAddresses
+            for (address in interfaceAddresses) {
+                val ip = address.address
+                // 排除回环地址和通配地址
+                if (ip is InetAddress && ip.isSiteLocalAddress && !ip.isLoopbackAddress && ip.hostAddress != "0.0.0.0") {
+                    // 如果是有效的 IPv4 地址，返回该接口的 IP 地址
+                    if (networkInterface.name.contains("wlan", ignoreCase = true) || networkInterface.name.contains("wifi", ignoreCase = true)) {
+                        return true
+                    }
+                }
+            }
+        }
+
+        return false // 没有找到合适的接口
+    }
+
+
+    private fun getLocalDateTime(xmlString: String): String? {
+        // 定义我们需要解析的标签，注意这里使用命名空间前缀
+         val targetElements = listOf("tt:Year", "tt:Month", "tt:Day", "tt:Hour", "tt:Minute", "tt:Second")
+        val parsedData = parseXml(xmlString, targetElements)
+
+        // 提取日期和时间的值
+        val year = parsedData["tt:Year"]?.get(1)?.toIntOrNull() ?: return null
+        val month = parsedData["tt:Month"]?.get(1)?.toIntOrNull()?: return null
+        val day = parsedData["tt:Day"]?.get(1)?.toIntOrNull() ?: return null
+        val hour = parsedData["tt:Hour"]?.get(1)?.toIntOrNull() ?: return null
+        val minute = parsedData["tt:Minute"]?.get(1)?.toIntOrNull() ?: return null
+        val second = parsedData["tt:Second"]?.get(1)?.toIntOrNull() ?: return null
+        // 使用 Calendar 来构建日期时间
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month-1, day, hour, minute, second)//月份从 0 开始
+
+        // 格式化为 "yyyy-MM-dd'T'HH:mm:ss'Z'" 格式
+        val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+//        sdf.timeZone = TimeZone.getTimeZone("UTC")  // 设置为 UTC 时区
+        return sdf.format(calendar.time)  // 返回格式化后的日期时间字符串
+    }
+
+    //24位随机数生成
+    private fun getNonce(): String {
+//         1 生成一个 UUID 字符串，并去掉破折号   字符集: 0123456789abcdef
+        return UUID.randomUUID().toString().replace("-", "").take(24)
+        //2 字符集:ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
+//        val byteArray = ByteArray(24)  // 24字节
+//        Random.nextBytes(byteArray)  // 填充随机字节
+//        return Base64.getEncoder().encodeToString(byteArray)  // Base64 编码并返回字符串
+    }
+    //返回24小时制时间
+    private fun getDate(): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+        return dateFormat.format(Date())
+    }
+
+    //密码摘要
+    private fun getPasswordDigest(nonce: String,date: String, password: String): String {
+        //官方计算公式  Digest = B64ENCODE( SHA1( B64DECODE( Nonce ) + Date + Password ) )
+        // 步骤 1: Base64 解码 Nonce
+        val decodedNonce = Base64.decode(nonce, Base64.NO_WRAP)
+        // 步骤 2: 拼接 Nonce + Date + Password
+        val dataToHash = decodedNonce + date.toByteArray(StandardCharsets.UTF_8) + password.toByteArray(StandardCharsets.UTF_8)
+        // 步骤 3: 使用 SHA1 算法进行哈希计算
+        val sha1Digest = MessageDigest.getInstance("SHA-1")
+        val hashedBytes = sha1Digest.digest(dataToHash)
+        // 步骤 4: 将哈希结果进行 Base64 编码
+        val passwordDigest = Base64.encodeToString(hashedBytes, Base64.NO_WRAP)
+        return passwordDigest
+    }
+
+
+
+
+    // 通用 XML 解析函数，传入标签名列表，返回对应的数据   只解析关心的标签名
+    private fun parseXml(xmlString: String, targetElementNames: List<String>): Map<String, List<String>> {
+        val result = mutableMapOf<String, MutableList<String>>()
+
+        // 初始化结果 Map，确保每个标签有一个空的列表
+        targetElementNames.forEach { result[it] = mutableListOf() }
+
+        try {
+            val factory = XmlPullParserFactory.newInstance()
+            val parser = factory.newPullParser()
+            parser.setInput(StringReader(xmlString))
+
+            var eventType = parser.eventType
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                val tagName = parser.name
+                when (eventType) {
+                    XmlPullParser.START_TAG -> {
+                        // 如果是关心的标签，处理其内容
+                        if (targetElementNames.contains(tagName)) {
+                            val value = parser.nextText()
+
+                            // 直接按空格拆分标签内容（即使没有空格）
+                            val valueList = value.split(" ").filter { it.isNotBlank() }  // 拆分并过滤空字符串
+
+                            result[tagName]?.addAll(valueList)  // 添加拆分后的值
+                        }
+                    }
+                    XmlPullParser.END_TAG -> {
+                        // 可在这里处理结束标签（如果需要）
+                    }
+                    XmlPullParser.TEXT -> {
+                        // 可在这里处理文本节点（如果需要）
+                    }
+                }
+                eventType = parser.next()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return result
+    }
+
+    //判断字符串中是否含有IPv4的地址
+    private fun extractIPv4(address: String): String {
+        // IPv4 地址正则表达式，用于匹配任意位置的 IPv4 地址
+        val ipv4Regex = """(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)""".toRegex()
+        // 查找字符串中的 IPv4 地址并返回匹配结果，若没有找到则返回空字符串
+        return ipv4Regex.find(address)?.value ?: ""
+    }
+
+
+
+    //采用读文件的方式来生成发送的数据
+    private fun getSendMsg(fileName: String, replacements: List<String>):String{
+        val assetManager: AssetManager = context.assets
+        var inputStream: InputStream? = null
+        var content = ""
+
+        try {
+            // 获取文件的输入流
+            inputStream = assetManager.open(fileName)
+
+            // 使用 BufferedReader 读取文件内容
+            val reader = BufferedReader(InputStreamReader(inputStream))
+            val stringBuilder = StringBuilder()
+
+            // 逐行读取文件内容
+            var line: String?
+            while (reader.readLine().also { line = it } != null) {
+                stringBuilder.append(line).append("\n")
+            }
+            // 获取文件内容
+            content = stringBuilder.toString()
+
+            // 替换文件中的 %s 占位符
+            for (replacement in replacements) {
+                content = content.replaceFirst("%s", replacement)
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        } finally {
+            // 关闭输入流
+            inputStream?.close()
+        }
+        return content
+    }
+
+
+    private fun sendPostRequest(urlString: String, postData: String, callback: (response: String) -> Unit) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+
+                val url = URL(urlString)
+                val connection = url.openConnection() as HttpURLConnection
+                connection.apply {
+                    requestMethod = "POST"
+                    connectTimeout = 1000  // 设置连接超时
+                    readTimeout = 1000     // 设置读取超时
+                    doOutput = true         // 允许输出
+                }
+
+                // 发送POST数据
+                connection.outputStream.write(postData.toByteArray())
+
+                // 获取服务器响应码
+                val responseCode = connection.responseCode
+                when(responseCode){
+                    HttpURLConnection.HTTP_OK -> {
+//                        val contentLength = connection.contentLength
+
+                        // 获取服务器响应输入流
+                        val inputStream: InputStream = connection.inputStream
+                        val bufferedInputStream = BufferedInputStream(inputStream)
+
+                        // 使用ByteArrayOutputStream来拼接返回数据
+                        val byteArrayOutputStream = ByteArrayOutputStream()
+                        val buffer = ByteArray(2048) // 每次读取2KB
+                        var bytesRead: Int
+
+                        // 逐块读取响应数据直到读取完流的结尾
+                        while (true) {
+                            bytesRead = bufferedInputStream.read(buffer)
+                            if (bytesRead == -1) break // 如果没有更多数据，退出循环
+                            byteArrayOutputStream.write(buffer, 0, bytesRead)
+                        }
+
+                        // 获取最终的字节数据
+                        val byteArray = byteArrayOutputStream.toByteArray()
+
+                        // 将字节数组转换为字符串
+                        val responseString = String(byteArray, Charset.forName("UTF-8"))
+
+                        // 关闭连接
+                        bufferedInputStream.close()
+                        byteArrayOutputStream.close()
+                        // 返回请求结果
+                        callback(responseString)
+                    }
+
+                    401 -> {
+                        //401 ，权限问题   打开web
+                        val err = ReturnOperation("WebView",extractIPv4(urlString) )
+                        _request.value = err
+                    }
+                    else -> {
+                        //其他的错误
+                        val err = ReturnOperation("DisplayErr","$responseCode")
+                        _request.value = err
+                    }
+                }
+
+
+                connection.disconnect()
+
+            } catch (e: Exception) {
+                // 捕获异常并打印日志
+                Log.e("sendPostRequest", "Error: ${e.message}", e)
+            }
+        }
+    }
+
+
+
+
+}

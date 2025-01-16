@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:top="2dp"
+        >
+        <shape>
+            <solid android:color="@color/button_center" />
+            <!--        圆角设置-->
+            <corners android:radius="5dp" />
+            <!--        边框设置-->
+            <stroke
+                android:width="2dp"
+                android:color="@color/button_frame"
+                />
+        </shape>
+
+    </item>
+
+
+    <!-- 矢量图 -->
+    <item>
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="1024"
+            android:viewportHeight="1024">
+            <path
+                android:fillColor="#ff1DA1F2"
+                android:pathData="M201.1,384v256L402.3,640a18.3,18.3 0,0 1,12.9 5.3l151.6,151.7L566.9,227l-151.6,151.7A18.3,18.3 0,0 1,402.3 384L201.1,384zM778.7,512l-60.2,-60.2a18.3,18.3 0,0 1,25.9 -25.9L804.6,486.1l60.2,-60.2a18.3,18.3 0,0 1,25.9 25.9L830.4,512l60.2,60.2a18.3,18.3 0,0 1,-25.9 25.9L804.6,537.9l-60.2,60.2a18.3,18.3 0,0 1,-25.9 -25.9L778.7,512zM394.7,676.6L182.9,676.6a18.3,18.3 0,0 1,-18.3 -18.3v-292.6a18.3,18.3 0,0 1,18.3 -18.3h211.9l177.5,-177.5A18.3,18.3 0,0 1,603.4 182.9v658.3a18.3,18.3 0,0 1,-31.2 12.9L394.7,676.6z"/>
+        </vector>
+    </item>
+
+
+
+</layer-list>

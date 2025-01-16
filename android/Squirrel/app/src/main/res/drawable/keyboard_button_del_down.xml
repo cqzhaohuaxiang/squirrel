@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 第一层设置-->
+    <!--android:top 顶部的偏移量-->
+    <!--android:bottom 底部的偏移量-->
+    <!--android:left 左边的偏移量-->
+    <!--android:right 右边的偏移量-->
+    <!--    android:radius 圆角设置-->
+
+
+    <!--    位置设置-->
+    <item
+
+        android:top="2dp"
+        >
+        <shape>
+
+            <solid android:color="@color/button_center" />
+            <!--        圆角设置-->
+            <!--            <corners android:radius="25dp" />-->
+            <corners
+                android:topLeftRadius="5dp"
+                android:topRightRadius="25dp"
+                android:bottomLeftRadius="5dp"
+                android:bottomRightRadius="5dp"
+                />
+            <!--        边框设置-->
+            <stroke
+                android:width="2dp"
+                android:color="@color/button_frame"
+                />
+        </shape>
+
+    </item>
+
+
+
+
+
+
+
+</layer-list>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/ipc_urlAddrs"
+        android:background="@drawable/styles_frame"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:hint="@string/inputUrl"
+        android:textColorHint="@color/yellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <ImageButton
+        android:padding="20dp"
+        android:background="@drawable/keyboard_win_styles_buttons"
+        android:src="@drawable/play"
+        android:id="@+id/ipc_playUrl"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+
+        />
+
+
+
+
+</LinearLayout>

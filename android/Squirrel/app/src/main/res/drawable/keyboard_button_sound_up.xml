@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+
+        android:top="0dp"
+        >
+        <shape>
+
+            <solid android:color="@color/button_high" />
+            <!--        圆角设置-->
+            <corners android:radius="5dp" />
+
+            <!--        边框设置-->
+            <stroke
+                android:width="1dp"
+                android:color="@color/button_frame"
+                />
+
+        </shape>
+
+    </item>
+
+
+    <item
+        android:top ="2dp"
+        android:bottom ="4dp"
+        android:left ="2dp"
+        android:right ="2dp"
+
+        >
+        <shape>
+            <solid android:color="@color/button_start" />
+            <!--        圆角设置-->
+            <!--        <corners android:radius="5dp" />-->
+            <corners
+                android:topLeftRadius="5dp"
+                android:topRightRadius="5dp"
+                android:bottomLeftRadius="5dp"
+                android:bottomRightRadius="5dp"
+                />
+
+
+            <gradient
+                android:angle="90"
+                android:centerX="100%"
+                android:startColor="@color/button_start"
+                android:centerColor="@color/button_center"
+                android:endColor="@color/button_end"
+                android:type="linear"
+                />
+
+        </shape>
+
+    </item>
+
+    <!-- 矢量图 -->
+    <item>
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="1024"
+            android:viewportHeight="1024">
+            <path
+                android:fillColor="#ff74747c"
+                android:pathData="M164.6,384v256L365.7,640a18.3,18.3 0,0 1,12.9 5.3l151.6,151.7L530.3,227l-151.6,151.7A18.3,18.3 0,0 1,365.7 384L164.6,384zM146.3,676.6a18.3,18.3 0,0 1,-18.3 -18.3v-292.6a18.3,18.3 0,0 1,18.3 -18.3h211.9l177.5,-177.5A18.3,18.3 0,0 1,566.9 182.9v658.3a18.3,18.3 0,0 1,-31.2 12.9L358.1,676.6L146.3,676.6zM815.7,705.9a18.3,18.3 0,0 1,-25.9 -25.9A236.9,236.9 0,0 0,859.4 512a236.9,236.9 0,0 0,-69.6 -168.1,18.3 18.3,0 1,1 25.9,-25.9A273.4,273.4 0,0 1,896 512c0,73.7 -29.3,142.8 -80.3,193.9zM712.2,602.5a18.3,18.3 0,1 1,-25.9 -25.9A91.1,91.1 0,0 0,713.1 512a91.1,91.1 0,0 0,-26.8 -64.7,18.3 18.3,0 1,1 25.9,-25.9A127.6,127.6 0,0 1,749.7 512a127.6,127.6 0,0 1,-37.5 90.5z"/>
+        </vector>
+    </item>
+
+
+
+</layer-list>

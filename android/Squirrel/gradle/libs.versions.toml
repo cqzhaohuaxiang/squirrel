@@ -1,0 +1,64 @@
+[versions]
+agp = "8.5.0"
+appcompatVersion = "1.7.0"
+cameraCore = "1.4.0-alpha04"
+
+ffmpegKitFull = "4.5.0"
+fragmentKtx = "1.6.0"
+kotlin = "2.0.0"
+#kotlin = "1.9.0"
+coreKtx = "1.12.0"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+appcompat = "1.6.1"
+activity = "1.8.0"
+constraintlayout = "2.1.4"
+
+rajawali = "1.2.1970"
+tasksVision = "0.20230731"
+verticalseekbar = "1.2.7"
+material = "1.11.0"
+viewpagerVersion = "1.0.0"
+mpandroidchartVersion = "v3.1.0"
+gridlayout = "1.0.0"
+animationCoreAndroid = "1.7.2"
+cronetEmbedded = "119.6045.31"
+volley = "1.2.1"
+media3ExoplayerRtsp = "1.5.1"
+[libraries]
+androidx-appcompat-v170 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
+androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraCore" }
+androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "cameraCore" }
+androidx-camera-extensions = { module = "androidx.camera:camera-extensions", version.ref = "cameraCore" }
+androidx-camera-mlkit-vision = { module = "androidx.camera:camera-mlkit-vision", version.ref = "cameraCore" }
+androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "cameraCore" }
+androidx-camera-video = { module = "androidx.camera:camera-video", version.ref = "cameraCore" }
+androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "cameraCore" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
+androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpagerVersion" }
+
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+material = { module = "com.google.android.material:material", version.ref = "material" }
+philjay-mpandroidchart = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "mpandroidchartVersion" }
+rajawali = { module = "org.rajawali3d:rajawali", version.ref = "rajawali" }
+tasks-vision = { module = "com.google.mediapipe:tasks-vision", version.ref = "tasksVision" }
+verticalseekbar = { module = "com.github.lukelorusso:VerticalSeekBar", version.ref = "verticalseekbar" }
+viewpager = { module = "androidx.viewpager:viewpager", version.ref = "viewpagerVersion" }
+androidx-gridlayout = { group = "androidx.gridlayout", name = "gridlayout", version.ref = "gridlayout" }
+androidx-animation-core-android = { group = "androidx.compose.animation", name = "animation-core-android", version.ref = "animationCoreAndroid" }
+cronet-embedded = { group = "org.chromium.net", name = "cronet-embedded", version.ref = "cronetEmbedded" }
+volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
+androidx-media3-exoplayer-rtsp = { group = "androidx.media3", name = "media3-exoplayer-rtsp", version.ref = "media3ExoplayerRtsp" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+

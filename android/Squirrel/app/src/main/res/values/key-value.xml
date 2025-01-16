@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--USB-HID 键盘键位报告符 -->
+    <string name="key_none" translatable="false">00</string>    <!-- 无按键  -->
+    <string name="key_a" translatable="false">04</string>
+    <string name="key_b" translatable="false">05</string>
+    <string name="key_c" translatable="false">06</string>
+    <string name="key_d" translatable="false">07</string>
+    <string name="key_e" translatable="false">08</string>
+    <string name="key_f" translatable="false">09</string>
+    <string name="key_g" translatable="false">0A</string>
+    <string name="key_h" translatable="false">0B</string>
+    <string name="key_i" translatable="false">0C</string>
+    <string name="key_j" translatable="false">0D</string>
+    <string name="key_k" translatable="false">0E</string>
+    <string name="key_l" translatable="false">0F</string>
+    <string name="key_m" translatable="false">10</string>
+    <string name="key_n" translatable="false">11</string>
+    <string name="key_o" translatable="false">12</string>
+    <string name="key_p" translatable="false">13</string>
+    <string name="key_q" translatable="false">14</string>
+    <string name="key_r" translatable="false">15</string>
+    <string name="key_s" translatable="false">16</string>
+    <string name="key_t" translatable="false">17</string>
+    <string name="key_u" translatable="false">18</string>
+    <string name="key_v" translatable="false">19</string>
+    <string name="key_w" translatable="false">1A</string>
+    <string name="key_x" translatable="false">1B</string>
+    <string name="key_y" translatable="false">1C</string>
+    <string name="key_z" translatable="false">1D</string>
+    <string name="key_1" translatable="false">1E</string>
+    <string name="key_2" translatable="false">1F</string>
+    <string name="key_3" translatable="false">20</string>
+    <string name="key_4" translatable="false">21</string>
+    <string name="key_5" translatable="false">22</string>
+    <string name="key_6" translatable="false">23</string>
+    <string name="key_7" translatable="false">24</string>
+    <string name="key_8" translatable="false">25</string>
+    <string name="key_9" translatable="false">26</string>
+    <string name="key_0" translatable="false">27</string>
+
+    <string name="key_enter" translatable="false">28</string>   <!--回车-->
+    <string name="key_esc" translatable="false">29</string>   <!--取消-->
+    <string name="key_backspace" translatable="false">2A</string>   <!--退格-->
+    <string name="key_tab" translatable="false">2B</string>   <!--制表-->
+    <string name="key_space" translatable="false">2C</string>   <!-- 空格-->
+    <string name="key_minus" translatable="false">2D</string>   <!-- 减号 -_ -->
+    <string name="key_equal" translatable="false">2E</string>   <!-- 加号+= -->
+    <string name="key_bracket_left" translatable="false">2F</string><!-- 左边花括号{[ -->
+    <string name="key_bracket_right" translatable="false">30</string><!-- 右边花括号}] -->
+    <string name="key_backslash" translatable="false">31</string><!-- 反斜杠\ | -->
+    <string name="key_europe_1" translatable="false">32</string><!--  -->
+    <string name="key_semicolon" translatable="false">33</string><!-- 分号;: -->
+    <string name="key_apostrophe" translatable="false">34</string><!-- 引号“'-->
+    <string name="key_grave" translatable="false">35</string> <!-- 波浪号 ~   -->
+    <string name="key_comma" translatable="false">36</string><!-- 左边小于号<, -->
+    <string name="key_period" translatable="false">37</string><!-- 右边小于号>. -->
+    <string name="key_slash" translatable="false">38</string><!-- 问号？ / -->
+    <string name="key_caps_lock" translatable="false">39</string> <!-- 大小写转换 -->
+    <string name="key_f1" translatable="false">3A</string>
+    <string name="key_f2" translatable="false">3B</string>
+    <string name="key_f3" translatable="false">3C</string>
+    <string name="key_f4" translatable="false">3D</string>
+    <string name="key_f5" translatable="false">3E</string>
+    <string name="key_f6" translatable="false">3F</string>
+    <string name="key_f7" translatable="false">40</string>
+    <string name="key_f8" translatable="false">41</string>
+    <string name="key_f9" translatable="false">42</string>
+    <string name="key_f10" translatable="false">43</string>
+    <string name="key_f11" translatable="false">44</string>
+    <string name="key_f12" translatable="false">45</string>
+
+
+    <string name="key_print_screen" translatable="false">46</string>
+    <string name="key_scroll_lock" translatable="false">47</string>
+    <string name="key_pause" translatable="false">48</string>
+    <string name="key_insert" translatable="false">49</string>
+    <string name="key_home" translatable="false">4A</string>
+    <string name="key_page_up" translatable="false">4B</string>
+    <string name="key_delete" translatable="false">4C</string><!-- 删除 -->
+    <string name="key_end" translatable="false">4D</string>
+    <string name="key_page_down" translatable="false">4E</string>
+
+    <string name="key_arrow_right" translatable="false">4F</string><!-- 方向 -->
+    <string name="key_arrow_left" translatable="false">50</string><!-- 方向 -->
+    <string name="key_arrow_down" translatable="false">51</string><!-- 方向 -->
+    <string name="key_arrow_up" translatable="false">52</string><!-- 方向 -->
+    <!--    小键盘-->
+    <string name="key_num_lock" translatable="false">53</string>
+    <string name="key_keypad_divide" translatable="false">54</string><!-- 小键盘 除号-->
+    <string name="key_keypad_multiply" translatable="false">55</string> <!-- 小键盘 乘号 -->
+    <string name="key_keypad_subtract" translatable="false">56</string><!-- 小键盘 减号 -->
+    <string name="key_keypad_add" translatable="false">57</string><!-- 小键盘 加号 -->
+    <string name="key_keypad_enter" translatable="false">58</string><!-- 小键盘 确认 -->
+    <string name="key_keypad_1" translatable="false">59</string>
+    <string name="key_keypad_2" translatable="false">5A</string>
+    <string name="key_keypad_3" translatable="false">5B</string>
+    <string name="key_keypad_4" translatable="false">5C</string>
+    <string name="key_keypad_5" translatable="false">5D</string>
+    <string name="key_keypad_6" translatable="false">5E</string>
+    <string name="key_keypad_7" translatable="false">5F</string>
+    <string name="key_keypad_8" translatable="false">60</string>
+    <string name="key_keypad_9" translatable="false">61</string>
+    <string name="key_keypad_0" translatable="false">62</string>
+    <string name="key_keypad_decimal" translatable="false">63</string><!-- 小键盘 删除 -->
+    <string name="key_europe_2" translatable="false">64</string><!-- | -->
+    <string name="key_applicatton" translatable="false">65</string>
+    <string name="key_power" translatable="false">66</string>
+    <string name="key_keypad_equal" translatable="false">67</string> <!-- 小键盘 等于号 -->
+
+    <string name="key_f13" translatable="false">68</string>
+    <string name="key_f14" translatable="false">69</string>
+    <string name="key_f15" translatable="false">6A</string>
+    <string name="key_f16" translatable="false">6B</string>
+    <string name="key_f17" translatable="false">6C</string>
+    <string name="key_f18" translatable="false">6D</string>
+    <string name="key_f19" translatable="false">6E</string>
+    <string name="key_f20" translatable="false">6F</string>
+    <string name="key_f21" translatable="false">70</string>
+    <string name="key_f22" translatable="false">71</string>
+    <string name="key_f23" translatable="false">72</string>
+    <string name="key_f24" translatable="false">73</string>
+
+    <string name="key_execute" translatable="false">74</string>
+    <string name="key_help" translatable="false">75</string>
+    <string name="key_menu" translatable="false">76</string>
+    <string name="key_select" translatable="false">77</string>
+    <string name="key_stop" translatable="false">78</string>
+    <string name="key_again" translatable="false">79</string>
+    <string name="key_undo" translatable="false">7A</string>
+    <string name="key_cut" translatable="false">7B</string>
+    <string name="key_copy" translatable="false">7C</string>
+    <string name="key_paste" translatable="false">7D</string>
+    <string name="key_find" translatable="false">7E</string>
+    <string name="key_mute" translatable="false">7F</string>
+
+    <string name="key_volume_up" translatable="false">80</string>
+    <string name="key_volume_down" translatable="false">81</string>
+    <string name="key_locking_caps_lock" translatable="false">82</string>
+    <string name="key_locking_num_lock" translatable="false">83</string>
+    <string name="key_locking_scroll_lock" translatable="false">84</string>
+    <string name="key_keypad_comma" translatable="false">85</string>
+    <string name="key_keypad_equal_sign" translatable="false">86</string>
+    <string name="key_kanji1" translatable="false">87</string>
+    <string name="key_kanji2" translatable="false">88</string>
+    <string name="key_kanji3" translatable="false">89</string>
+    <string name="key_kanji4" translatable="false">8A</string>
+    <string name="key_kanji5" translatable="false">8B</string>
+    <string name="key_kanji6" translatable="false">8C</string>
+    <string name="key_kanji7" translatable="false">8D</string>
+    <string name="key_kanji8" translatable="false">8E</string>
+    <string name="key_kanji9" translatable="false">8F</string>
+    <string name="key_lang1" translatable="false">90</string>
+    <string name="key_lang2" translatable="false">91</string>
+    <string name="key_lang3" translatable="false">92</string>
+    <string name="key_lang4" translatable="false">93</string>
+    <string name="key_lang5" translatable="false">94</string>
+    <string name="key_lang6" translatable="false">95</string>
+    <string name="key_lang7" translatable="false">96</string>
+    <string name="key_lang8" translatable="false">97</string>
+    <string name="key_lang9" translatable="false">98</string>
+    <string name="key_alternate_erase" translatable="false">99</string>
+    <string name="key_sysreq_attention" translatable="false">9A</string>
+    <string name="key_cancel" translatable="false">9B</string>
+    <string name="key_clear" translatable="false">9C</string>
+    <string name="key_prior" translatable="false">9D</string>
+    <string name="key_return" translatable="false">9E</string>
+    <string name="key_separator" translatable="false">9F</string>
+    <string name="key_out" translatable="false">A0</string>
+    <string name="key_oper" translatable="false">A1</string>
+    <string name="key_clear_again" translatable="false">A2</string>
+    <string name="key_crsel_props" translatable="false">A3</string>
+    <string name="key_exsel" translatable="false">A4</string>
+
+    <!--保留 A5 到 DF-->
+
+<!--    以下的数值都不重要  是按了Bit位来取值的 按钮下相应的们为1 抬起为0 -->
+    <string name="key_control_left" translatable="false">E0</string>
+    <string name="key_shift_left" translatable="false">E1</string>
+    <string name="key_alt_left" translatable="false">E2</string>
+    <string name="key_win_left" translatable="false">E3</string>
+    <string name="key_control_right" translatable="false">E4</string>
+    <string name="key_shift_right" translatable="false">E5</string>
+    <string name="key_alt_right" translatable="false">E6</string>
+    <string name="key_win_right" translatable="false">E7</string>
+
+
+
+</resources>
